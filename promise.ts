@@ -60,6 +60,8 @@ function onError(){
     console.error("Error  getting the user information");
     
 }
+
+
 // const userData = fetchUser().then(onSuccess,onError) 
 
 // const userData = fetchUser().then(user => console.log(user));

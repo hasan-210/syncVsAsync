@@ -57,7 +57,7 @@ function fetchUserInfo(user:TUserInfo){
 }
 
 const user:TUserInfo ={
-    id:90,
+    id:2323,
     username:'hasan',
     role: "USER"
 }
@@ -74,11 +74,20 @@ function onFainally(){
     console.log('Stop Loading Indecator');
 }
 
-fetchUserInfo(user)
-        .then(onSuccess)
-        .catch(onRejected)
-        .finally(onFainally)
+// ** fetchUserInfo(user).then(onSuccess).catch(onRejected).finally(onFainally)
 
+async function getUserData(){
+    try {
+        const userData = await fetchUserInfo(user);
+        console.log(userData);
+        await onSuccess(userData)
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+getUserData()
 //   fetchUserInfo(user).then(user =>fetchUserInfo(user))
 //   .catch(err => console.log(err));
 //        |
@@ -89,9 +98,6 @@ fetchUserInfo(user)
 //     user => getUserTodoInfo(user),
 //     err => console.log(err)
 // );
-
-
-
 
 
 
